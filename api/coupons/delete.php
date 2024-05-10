@@ -2,6 +2,6 @@
 if (isset($_GET["id"])) {
     $couponID = $_GET["id"];
     $woocommerce->delete('coupons/' . $couponID);
-    header("Location: http://localhost/~vgbao2110/fluffybunny/index.php?page=couponAll");
+    header("Location: http://localhost/fluffybunny/index.php?page=couponAll");
 }
 ?>

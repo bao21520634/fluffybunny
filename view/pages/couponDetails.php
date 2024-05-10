@@ -1,7 +1,7 @@
 <section>
     <?php
     $id = $_GET["id"];
-    $data = file_get_contents("http://localhost/~vgbao2110/fluffybunny/api/coupons?id=$id");
+    $data = file_get_contents("http://localhost/fluffybunny/api/coupons?id=$id");
     $data = json_decode($data, true);
 
     session_start();
@@ -14,7 +14,7 @@
         $_SESSION["description"] = $_POST["description"];
         $_SESSION["usage_limit"] = $_POST["usage_limit"];
         $_SESSION["usage_limit_per_user"] = $_POST["usage_limit_per_user"];
-        header("Location: http://localhost/~vgbao2110/fluffybunny/api/coupons/?id=$id&action=update");
+        header("Location: http://localhost/fluffybunny/api/coupons/?id=$id&action=update");
     }
     ?>
     <form action="" method="POST">
@@ -85,7 +85,7 @@
                 <td>
                     <ul class="coupon_action_btn">
                         <li>
-                            <a href="http://localhost/~vgbao2110/fluffybunny/api/coupons?id=<?php echo $data['id'] ?>&action=delete"
+                            <a href="http://localhost/fluffybunny/api/coupons?id=<?php echo $data['id'] ?>&action=delete"
                                 id="deleteCoupon">Delete</a>
                         </li>
                         <li style="background-color: blue;">

@@ -11,7 +11,7 @@
 <body>
 
     <?php
-    $data = file_get_contents('http://localhost/~vgbao2110/fluffybunny/api/products');
+    $data = file_get_contents('http://localhost/fluffybunny/api/products');
     $data = json_decode($data, true);
     ?>
     <div>

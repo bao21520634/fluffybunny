@@ -2,7 +2,7 @@
     <?php
     session_start();
     $id = $_GET["id"];
-    $data = file_get_contents("http://localhost/~vgbao2110/fluffybunny/api/products?id=$id");
+    $data = file_get_contents("http://localhost/fluffybunny/api/products?id=$id");
     $data = json_decode($data, true);
     $allImages = [];
     if (isset($data["images"])) {
@@ -54,7 +54,7 @@
         }
         $_SESSION['categories'] = $checkedCategories;
 
-        header("Location: http://localhost/~vgbao2110/fluffybunny/api/products/?id=$id&action=update");
+        header("Location: http://localhost/fluffybunny/api/products/?id=$id&action=update");
     }
     ?>
     <form action="" method="POST" id="productDetails" enctype="multipart/form-data">
@@ -151,7 +151,7 @@
                 <td rowspan="2">
                     Categories: <br>
                     <?php
-                    $categoryData = file_get_contents('http://localhost/~vgbao2110/fluffybunny/api/categories');
+                    $categoryData = file_get_contents('http://localhost/fluffybunny/api/categories');
                     $allCategories = json_decode($categoryData, true);
                     foreach ($allCategories as $category) {
                         $isChecked = false;
@@ -183,7 +183,7 @@
                 <td colspan=4>
                     Images:
                     <!-- <a style="color: blue;"
-                        href="http://localhost/~vgbao2110/fluffybunny/api/products?id=$id&action=addimage"><u>Add
+                        href="http://localhost/fluffybunny/api/products?id=$id&action=addimage"><u>Add
                             an image</u></a> -->
                     <ul class="prod-images">
                         <?php
@@ -206,7 +206,7 @@
                 <td>
                     <ul class="product_action_btn">
                         <li>
-                            <a href="http://localhost/~vgbao2110/fluffybunny/api/products?id=<?php echo $data['id'] ?>&action=delete" id="deleteProduct">Delete</a>
+                            <a href="http://localhost/fluffybunny/api/products?id=<?php echo $data['id'] ?>&action=delete" id="deleteProduct">Delete</a>
                         </li>
                         <li style="background-color: blue;">
                             <input type="submit" name="submit" value="Update" style="background-color: blue; border: none; cursor: pointer; color: white">

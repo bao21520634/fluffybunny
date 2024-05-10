@@ -10,6 +10,6 @@ $data = [
     'usage_limit' => $_SESSION["usage_limit"]
 ];
 $woocommerce->post('coupons', $data);
-header("Location: http://localhost/~vgbao2110/fluffybunny/index.php?page=couponAll");
+header("Location: http://localhost/fluffybunny/index.php?page=couponAll");
 session_destroy();
 ?>

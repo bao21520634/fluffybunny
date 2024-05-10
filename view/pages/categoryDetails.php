@@ -2,14 +2,14 @@
     <?php
     session_start();
     $id = $_GET["id"];
-    $data = file_get_contents("http://localhost/~vgbao2110/fluffybunny/api/categories?id=$id");
+    $data = file_get_contents("http://localhost/fluffybunny/api/categories?id=$id");
     $data = json_decode($data, true);
     if (isset($_POST["submit"]) && $_POST["submit"] == "Update") {
         $_SESSION["id"] = $id;
         $_SESSION["name"] = $_POST["name"];
         $_SESSION["slug"] = $_POST["slug"];
         $_SESSION["parent"] = $_POST["parent"];
-        header("Location: http://localhost/~vgbao2110/fluffybunny/api/categories/?id=$id&action=update");
+        header("Location: http://localhost/fluffybunny/api/categories/?id=$id&action=update");
     }
     ?>
     <form action="" method="POST" id="categoryDetails">
@@ -31,7 +31,7 @@
                     Parent Category:
                     <select name="parent" id="">
                         <?php
-                        $categoryData = file_get_contents('http://localhost/~vgbao2110/fluffybunny/api/categories');
+                        $categoryData = file_get_contents('http://localhost/fluffybunny/api/categories');
                         $allCategories = json_decode($categoryData, true);
                         if ($data['parent'] == '0') {
                             echo "<option selected value = '0'>None</option>";
@@ -58,7 +58,7 @@
                 <td>
                     <ul class="categories-action-btn">
                         <li>
-                            <a href="http://localhost/~vgbao2110/fluffybunny/api/categories?id=<?php echo $data['id'] ?>&action=delete"
+                            <a href="http://localhost/fluffybunny/api/categories?id=<?php echo $data['id'] ?>&action=delete"
                                 >Delete</a>
                         </li>
                         <li style="background-color: blue;">

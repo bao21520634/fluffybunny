@@ -64,5 +64,5 @@ $data = [
     'categories' => $categoriesData
 ];
 $woocommerce->put('products/' . $_SESSION["id"], $data);
-header("Location: http://localhost/~vgbao2110/fluffybunny/index.php?page=productDetails&id=$_SESSION[id]");
+header("Location: http://localhost/fluffybunny/index.php?page=productDetails&id=$_SESSION[id]");
 session_destroy();
