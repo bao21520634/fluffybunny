@@ -1,6 +1,6 @@
 <?php
 $allProducts = [];
-for ($index = 1; ; $index++) {
+for ($index = 1; $index <= 1; $index++) {
     $data = $woocommerce->get('products', [
         "page" => $index,
         "per_page" => 100
@@ -15,7 +15,7 @@ for ($index = 1; ; $index++) {
 $count = 0;
 $allProducts = json_decode(json_encode(($allProducts)), true);
 foreach ($allProducts as $product) {
-    if ($product["average_rating"] < 2) {
+    if (($product["rating_count"] >= 10) && ($product["average_rating"] < 2)) {
         $data = [
             'status' => 'pending',
         ];
@@ -25,6 +25,5 @@ foreach ($allProducts as $product) {
         }
     }
 }
-echo "<script>window.alert('Successful hide " . $count . " products!')</script>";
-header("Location: http://localhost/~vgbao2110/fluffybunny/index.php?page=productAll");
+echo 'Successful add quantities for ' . $count . ' products!';
 ?>

@@ -19,21 +19,23 @@ $woocommerce = new Client(
     ]
 );
 
-if (isset($_GET['action'])){
+if (isset($_GET['action'])) {
     if (isset($_GET["id"])) {
         if ($_GET["action"] === 'update') {
-            include ("./update.php");
+            include("./update.php");
         } else if ($_GET["action"] === "delete") {
-            include ("./delete.php");
+            include("./delete.php");
+        }
+    } else {
+        if ($_GET["action"] === "deleteExpired") {
+            include("./deleteExpired.php");
+        } else {
+            include("./create.php");
         }
     }
-    else include ("./create.php");
+} else {
+    if (isset($_GET["id"])) {
+        include("./get.php");
+    } else
+        include("./getAll.php");
 }
-else {
-    if (isset($_GET["id"])){
-        include ("./get.php");
-    }
-    else
-        include ("./getAll.php");
-}
-?>

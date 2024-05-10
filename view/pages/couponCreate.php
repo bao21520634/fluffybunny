@@ -42,7 +42,7 @@
                     $now = date('Y-m-d\TH:i');
                     ?>
 
-                    <input name="date_expires" min="<?php echo $now; ?>" required type="datetime-local">
+                    <input name="date_expires" required type="datetime-local">
                 </td>
             </tr>
             <tr>

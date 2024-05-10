@@ -1,6 +1,6 @@
 <?php
 $allProducts = [];
-for ($index = 1; ; $index++) {
+for ($index = 1; $index <= 1; $index++) {
     $data = $woocommerce->get('products', [
         "page" => $index,
         "per_page" => 100
@@ -25,6 +25,5 @@ foreach($allProducts as $product){
         }
     }
 }
-echo "<script>window.alert('Successful allow backorders for ".$count." products!')</script>";
-header("Location: http://localhost/fluffybunny/index.php?page=productAll");
+echo 'Successful add quantities for ' . $count . ' products!';
 ?>

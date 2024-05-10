@@ -12,5 +12,6 @@ for ($index = 1; $index <= 1; $index++) {
 
     $allCoupons = array_merge($allCoupons, $data);
 }
+
 echo json_encode($allCoupons);
 ?>
