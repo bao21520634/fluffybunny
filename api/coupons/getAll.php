@@ -1,6 +1,6 @@
 <?php
 $allCoupons = [];
-for ($index = 1; ; $index++) {
+for ($index = 1; $index <= 1; $index++) {
     $data = $woocommerce->get('coupons', [
         "page" => $index,
         "per_page" => 100

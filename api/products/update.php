@@ -6,39 +6,41 @@ $upload = new UploadApi();
 
 session_start();
 
-// for ($i = 0; $i < count($_SESSION["delete_images"]); $i++) {
-//     for ($j = 0; $j < count($_SESSION["all_images"]); $j++) {
-//         if ((string)$_SESSION["all_images"][$j]['id'] === $_SESSION["delete_images"][$i]) {
-//             $upload->destroy(pathinfo($_SESSION["all_images"][$j]['name'], PATHINFO_FILENAME));
-//             break;
-//         }
-//     }
-// }
+for ($i = 0; $i < count($_SESSION["delete_images"]); $i++) {
+    for ($j = 0; $j < count($_SESSION["all_images"]); $j++) {
+        if ((string)$_SESSION["all_images"][$j]['id'] === $_SESSION["delete_images"][$i]) {
+            $upload->destroy(pathinfo($_SESSION["all_images"][$j]['name'], PATHINFO_FILENAME));
+            break;
+        }
+    }
+}
 
 $imagesData = array_map(function ($id) {
     return ['id' => $id];
 }, $_SESSION["images"]);
 
-if (isset($_SESSION['add_images'])) {
+echo "<script>console.log('Debug Objects 1: " . json_encode($_SESSION['add_images']) . "' );</script>";
+if (count($_SESSION['add_images']) > 0) {
     for ($i = 0; $i < count($_SESSION['add_images']); $i++) {
-        $file_tmp = $_SESSION['add_images'][$i];
-        $tokens = explode('/', $file_tmp);
-        $file_id = str_replace("php", "", $tokens[sizeof($tokens) - 1]);
+        if ($_SESSION['add_images'][$i]) {
+            $file_tmp = $_SESSION['add_images'][$i];
+            $tokens = explode('/', $file_tmp);
+            $file_id = str_replace("php", "", $tokens[sizeof($tokens) - 1]);
+        
+            $res = $upload->upload($file_tmp, [
+                'public_id' => $file_id,
+                'use_filename' => true,
+                'overwrite' => true
+            ]);
+        
+            $imagesData[] = [
+                'src' => $res['secure_url']
+            ];
     
-        $res = $upload->upload($file_tmp, [
-            'public_id' => $file_id,
-            'use_filename' => true,
-            'overwrite' => true
-        ]);
-    
-        $imagesData[] = [
-            'src' => $res['secure_url']
-        ];
-
+        }
         unlink($file_tmp);
     }
 }
-echo "<script>console.log('Debug Objects 1: " . json_encode($imagesData) . "' );</script>";
 
 $tagsData = array_map(function ($name) {
     return ['name' => $name];
@@ -62,5 +64,5 @@ $data = [
     'categories' => $categoriesData
 ];
 $woocommerce->put('products/' . $_SESSION["id"], $data);
-header("Location: http://localhost/fluffybunny/index.php?page=productDetails&id=$_SESSION[id]");
+header("Location: http://localhost/~vgbao2110/fluffybunny/index.php?page=productDetails&id=$_SESSION[id]");
 session_destroy();

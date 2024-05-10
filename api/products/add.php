@@ -46,5 +46,5 @@ $data = [
     'categories' => $categoriesData
 ];
 $woocommerce->post('products/', $data);
-header("Location: http://localhost/fluffybunny/index.php?page=productAll");
+header("Location: http://localhost/~vgbao2110/fluffybunny/index.php?page=productAll");
 session_destroy();

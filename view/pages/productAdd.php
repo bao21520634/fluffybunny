@@ -40,7 +40,7 @@
             }
         }
         $_SESSION['categories'] = $checkedCategories;
-        header("Location: http://localhost/fluffybunny/api/products/?action=add");
+        header("Location: http://localhost/~vgbao2110/fluffybunny/api/products/?action=add");
     }
     ?>
     <form action="" method="POST" id="productDetails" enctype="multipart/form-data">
@@ -91,7 +91,7 @@
                 <td rowspan="2">
                     Categories: <br>
                     <?php
-                    $categoryData = file_get_contents('http://localhost/fluffybunny/api/categories');
+                    $categoryData = file_get_contents('http://localhost/~vgbao2110/fluffybunny/api/categories');
                     $allCategories = json_decode($categoryData, true);
                     foreach ($allCategories as $category) {
                         echo "<input type='checkbox' name='category[]' value='{$category['id']}'>";
@@ -117,7 +117,7 @@
                     </ul> </td>
             </tr>
             <tr>
-                <input type="file" name="images[]" multiple />
+                <input type="file" name="images[]" required multiple />
             </tr>
         </table>
     </form>

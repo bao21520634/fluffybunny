@@ -6,7 +6,7 @@
         $_SESSION["slug"] = $_POST["slug"];
         $_SESSION["parent"] = $_POST["parent"];
         $_SESSION["description"] = $_POST["description"];
-        header("Location: http://localhost/fluffybunny/api/categories/?action=add");
+        header("Location: http://localhost/~vgbao2110/fluffybunny/api/categories/?action=add");
     }
     ?>
     <form action="" method="POST" id="categoryAddForm">
@@ -35,7 +35,7 @@
                     <select name="parent" id="">
                         <option value='0'>None</option>
                         <?php
-                        $categoryData = file_get_contents('http://localhost/fluffybunny/api/categories');
+                        $categoryData = file_get_contents('http://localhost/~vgbao2110/fluffybunny/api/categories');
                         $allCategories = json_decode($categoryData, true);
                             foreach ($allCategories as $category) {
                                         echo "<option value = '$category[id]'>$category[name]</option>";

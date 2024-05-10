@@ -15,6 +15,6 @@ if ($_SESSION["slug"] != '') {
     ];
 }
 $woocommerce->post('products/categories', $data);
-header("Location: http://localhost/fluffybunny/index.php?page=categoryAll");
+header("Location: http://localhost/~vgbao2110/fluffybunny/index.php?page=categoryAll");
 session_destroy();
 ?>

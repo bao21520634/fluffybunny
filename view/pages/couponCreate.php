@@ -9,7 +9,7 @@
         $_SESSION["description"] = $_POST["description"];
         $_SESSION["usage_limit"] = $_POST["usage_limit"];
         $_SESSION["usage_limit_per_user"] = $_POST["usage_limit_per_user"];  
-        header("Location: http://localhost/fluffybunny/api/coupons/?action=create");
+        header("Location: http://localhost/~vgbao2110/fluffybunny/api/coupons/?action=create");
     }
     ?>
     <form action="" method="POST">

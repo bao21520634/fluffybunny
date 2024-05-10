@@ -4,7 +4,6 @@
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <meta http-equiv="X-UA-Compatible" content="IE=edge">
 </head>
-
 <body>
     <div id="sidebar">
         <div class="sidebar-header">
@@ -36,7 +35,7 @@
                     <li>
                         <a href="index.php?page=categoryAdd">Add a category</a>
                     </li>
-                    </ul>
+                </ul>
             </li>
             <li>
                 <a href="#couponsSubmenu" data-toggle="collapse" aria-expanded="false" class="dropdown-toggle">Coupon</a>
@@ -49,6 +48,20 @@
                     </li>
                 </ul>
             </li>
+            <!-- <li>
+                <a href="#optionsSubmenu" data-toggle="collapse" aria-expanded="false" class="dropdown-toggle">Options</a>
+                <ul class="collapse list-unstyled" id="optionsSubmenu">
+                    <li>
+                        <a href="http://localhost/~vgbao2110/fluffybunny/api/products/?action=add_quantities">Add quantities for products without stock quanity</a>
+                    </li>
+                    <li>
+                        <a href="http://localhost/~vgbao2110/fluffybunny/api/products/?action=allow_backorders">Allow backorders for out-of-stock products</a>
+                    </li>
+                    <li>
+                        <a href="http://localhost/~vgbao2110/fluffybunny/api/products/?action=hide_products">Hide products with low rating</a>
+                    </li>
+                </ul>
+            </li> -->
         </ul>
     </div>
 </body>

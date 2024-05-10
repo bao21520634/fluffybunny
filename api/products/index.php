@@ -39,8 +39,20 @@ if (isset($_GET['action'])) {
         } else if ($_GET["action"] === "delete") {
             include ("./delete.php");
         }
-    } else
-        include ("./add.php");
+    } else {
+        if ($_GET["action"] === "allow_backorders") {
+            include ("./allowBackorders.php");
+        } else {
+            if ($_GET["action"] === "add_quantities"){
+                include ("./addQuantities.php");
+            }
+            else if ($_GET["action"]==="hide_products"){
+                include ("./hideProducts.php");
+            } else {
+                include ("./add.php");
+            }
+        }
+    }
 } else {
     if (isset($_GET["id"])) {
         include ("./get.php");

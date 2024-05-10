@@ -1,7 +1,7 @@
 <?php
 
 $allCategories = [];
-for ($index = 1; ; $index++) {
+for ($index = 1; $index <= 1; $index++) {
     $data = $woocommerce->get('products/categories', [
         "page" => $index,
         "per_page" => 100
